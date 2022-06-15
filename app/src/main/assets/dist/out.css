@@ -1,0 +1,74 @@
+/*@tailwind base;*/
+
+.static {
+  position: static
+}
+
+.m-10 {
+  margin: 2.5rem
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem
+}
+
+.my-1 {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem
+}
+
+.mt-10 {
+  margin-top: 2.5rem
+}
+
+.mt-4 {
+  margin-top: 1rem
+}
+
+.mt-8 {
+  margin-top: 2rem
+}
+
+.flex {
+  display: flex
+}
+
+.w-\[20px\] {
+  width: 20px
+}
+
+.items-center {
+  align-items: center
+}
+
+.justify-center {
+  justify-content: center
+}
+
+.bg-primary-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(32 196 102 / var(--tw-bg-opacity))
+}
+
+.p-5 {
+  padding: 1.25rem
+}
+
+.text-center {
+  text-align: center
+}
+
+.text-lg {
+  font-size: 22px;
+  line-height: 28px
+}
+
+.font-medium {
+  font-weight: 500
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity))
+}
