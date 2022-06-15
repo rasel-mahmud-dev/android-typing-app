@@ -3,6 +3,7 @@ package com.preact_android;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
@@ -12,12 +13,12 @@ import java.io.InputStream;
 
 public class WebAppInterface {
     Context mContext;
+    WebView myWebview;
     /** Instantiate the interface and set the context */
-    WebAppInterface(Context c) {
-        mContext = c;
-
+    WebAppInterface(Context c, WebView myWebview) {
+        this.mContext = c;
+        this.myWebview = myWebview;
     }
-
 
 
     /** Show a toast from the web page */
@@ -88,6 +89,19 @@ public class WebAppInterface {
     }
 
 
+    @JavascriptInterface
+    public void reloadWebview(String data) {
+        Context a = myWebview.getContext();
+        myWebview.post(new Runnable() {
+            @Override
+            public void run() {
+                myWebview.reload();
+                System.out.println(this);
+                Toast.makeText(a , data, Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
 
 //    @JavascriptInterface
 //    public void createLesson(String lessons){
@@ -137,7 +151,5 @@ public class WebAppInterface {
 //            e.printStackTrace();
 //        }
 //    }
-
-
 
 }

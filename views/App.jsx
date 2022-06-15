@@ -1,7 +1,6 @@
 import {useContext, useEffect} from "preact/compat";
 import AppContext, {connect} from "./context/AppContext";
 import  {h} from 'preact';
-import {getAllLessons, getFavoriteLessons} from "./actions";
 import Router, {Route} from "preact-router";
 import {createHashHistory} from "history";
 import HomePage from "./pages/Homepage";
@@ -9,7 +8,6 @@ import AboutPage from "./pages/AboutPage";
 import AddPost from "./pages/AddPost";
 import AddNewLesson from "./pages/AddNewLesson";
 import Play from "./pages/Play";
-import BottomNavigation from "./components/BottomNavigation";
 import TopNavigation from "./components/TopNavigation";
 
 const App = ()=>{
@@ -17,8 +15,11 @@ const App = ()=>{
 	const appContext = useContext(AppContext);
 	
 	useEffect(()=>{
-		// let lessons = getAllLessons()
-		getDataFromAndroid()
+		// let lessons = getAllLessons() // fetch from local json files...
+		if(appContext.state.lessons && appContext.state.lessons.length > 0){
+		} else {
+			 getDataFromAndroid()
+		}
 		// appContext.setState({lessons: lessons.lessons, favoriteLessons: lessons.favorite})
 	}, [])
 	
