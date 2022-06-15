@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class WebAppInterface {
-    DatabaseHelper myDb;
     Context mContext;
     /** Instantiate the interface and set the context */
     WebAppInterface(Context c) {
@@ -27,14 +26,6 @@ public class WebAppInterface {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
     }
 
-
-//    @JavascriptInterface
-//    public void addPost(String post) {
-//        myDb = new DatabaseHelper(this.mContext);
-//        System.out.println(post);
-//        boolean isInserted = myDb.insertData("post 1", "summary", "content", "['sdf', 'asd']", 1);
-//        System.out.println(isInserted);
-//    }
 
     @JavascriptInterface
     public void addLesson(String lessons) {
@@ -59,6 +50,7 @@ public class WebAppInterface {
 
 
             mContext.getAssets();
+
 
             fos = mContext.openFileOutput("lessons.json", Context.MODE_PRIVATE);
             fos.write(allData.toString().getBytes());
