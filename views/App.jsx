@@ -17,8 +17,9 @@ const App = ()=>{
 	const appContext = useContext(AppContext);
 	
 	useEffect(()=>{
-		let lessons = getAllLessons()
-		appContext.setState({lessons: lessons.lessons, favoriteLessons: lessons.favorite})
+		// let lessons = getAllLessons()
+		getDataFromAndroid()
+		// appContext.setState({lessons: lessons.lessons, favoriteLessons: lessons.favorite})
 	}, [])
 	
 	function handleClick(){
@@ -27,11 +28,37 @@ const App = ()=>{
 		}
 	}
 
+	function getDataFromAndroid(){
+		let a = Android && Android.getData("");
+		try{
+			let data = JSON.parse(a)
+			appContext.setState({lessons: data.lessons, favoriteLessons: data.favorite})
+			
+			let lenLesson = 0
+			let lenFavo = 0
+			
+			if(data.lessons){
+				lenLesson = data.lessons.length;
+			}
+			
+			if(data.favorite){
+				lenFavo = data.favorite.length;
+			}
+			
+			Android.showToast("lesson fetch from android " + JSON.stringify({
+				lesson: lenLesson,
+				favorite: lenFavo,
+			}))
+		} catch (ex){
+			Android.showToast(ex.message)
+			alert("lessons not found")
+		}
+		
+	}
+	
 	
 	return (
 		<div className="content mt-10">
-			
-			<button onClick={()=>	Android && Android.addLesson("ASDDDDDDDDDDDDDDDDDDDDDDD")}>ADd</button>
 			
 			<div className="circle-3"></div>
 			<div className="circle-2"></div>

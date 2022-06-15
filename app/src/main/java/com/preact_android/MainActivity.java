@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 
-
 		hideSystemBars();
 		setContentView(R.layout.activity_main);
 
@@ -34,22 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        myWebView.setWebViewClient(new WebViewClient());
 		myWebview.setWebChromeClient(new WebChromeClient());
-
-
-		myWebview.setWebViewClient(new WebViewClient() {
-			public void onPageFinished(WebView view, String url) {
-				//Here you want to use .loadUrl again
-				//on the webview object and pass in
-				//on the webview object and pass in
-				//"javascript:<your javaScript function"
-				myWebview.loadUrl("javascript:myJavaScriptFunc('" + "s" + "')");
-				//if passing in an object. Mapping may need to take place
-			}
-		});
-
-
 		myWebview.loadUrl("file:///android_asset/dist/index.html");
-
 	}
 
 	@Override

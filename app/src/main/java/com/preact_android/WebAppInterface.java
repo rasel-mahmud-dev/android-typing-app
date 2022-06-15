@@ -67,6 +67,27 @@ public class WebAppInterface {
     }
 
 
+    @JavascriptInterface
+    public String getData(String data) {
+        try {
+            InputStream inputStream = this.mContext.openFileInput("lessons.json");
+
+            int result = inputStream.available();
+
+            byte[] bytes = new byte[result];
+
+            inputStream.read(bytes);
+            inputStream.close();
+
+            return new String(bytes);
+
+        } catch (Exception e){
+            Toast.makeText(this.mContext, "Exception: "+ e, Toast.LENGTH_LONG).show();
+            return "";
+        }
+    }
+
+
 
 //    @JavascriptInterface
 //    public void createLesson(String lessons){
