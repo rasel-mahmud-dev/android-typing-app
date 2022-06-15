@@ -34,7 +34,6 @@ const App = ()=>{
 		try{
 			let data = JSON.parse(a)
 			appContext.setState({lessons: data.lessons, favoriteLessons: data.favorite})
-			
 			let lenLesson = 0
 			let lenFavo = 0
 			
@@ -53,8 +52,8 @@ const App = ()=>{
 		} catch (ex){
 			Android.showToast(ex.message)
 			alert("lessons not found")
+			Android && Android.handleError("copy-lessons");
 		}
-		
 	}
 	
 	

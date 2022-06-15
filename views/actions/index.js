@@ -1,15 +1,3 @@
-import lessons from "../context/lessons.json"
-
-
-export function getAllLessons(){
-	return lessons
-}
-
-export function getFavoriteLessons(){
-	return lessons.favorite
-}
-
-
 export function getLesson(lessonsArr, lessonSection, lessonName, nextIndex = -1){
 	
 	let lesson = null
@@ -52,6 +40,23 @@ export function getLesson(lessonsArr, lessonSection, lessonName, nextIndex = -1)
 				}
 			}
 		})
+	}
+	return lesson
+}
+
+
+export function getLessonFavorite(lessonsArr,  lessonName, nextIndex = -1){
+	let lesson;
+	if(lessonsArr) {
+		let index=	lessonsArr.findIndex(l => l.label === lessonName)
+
+		if(index !== -1){
+			lesson = {
+				...lessonsArr[index],
+				lessonSection: "favorite",
+				nextLessonIndex: index
+			}
+		}
 	}
 	return lesson
 }

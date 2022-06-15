@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class WebAppInterface {
     Context mContext;
@@ -25,6 +26,19 @@ public class WebAppInterface {
     @JavascriptInterface
     public void showToast(String toast) {
         Toast.makeText(mContext, toast, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /** Show a toast from the web page */
+    @JavascriptInterface
+    public void handleError(String type) {
+        if(Objects.equals(type, "copy-lessons")){
+            /// simply copy lessons json file to data/data dir
+            this.copyAssetsToDataDir();
+
+        } else{
+
+        }
     }
 
 
@@ -68,6 +82,49 @@ public class WebAppInterface {
     }
 
 
+    public void copyAssetsToDataDir() {
+        /*
+        * get all content from android assets/lessons.json file
+        * and create a json file inside data/data path with same name
+        * */
+
+        try {
+
+            // read file
+            AssetManager assetFiles = mContext.getAssets();
+            InputStream stream = assetFiles.open("lessons.json");
+            int i;
+            char c;
+            StringBuilder allData = new StringBuilder();
+
+            while((i = stream.read()) != -1) {
+                // converts integer to character
+                c = (char)i;
+                // prints character
+                allData.append(c);
+            }
+
+            stream.close();
+
+
+            // write file
+            FileOutputStream fos = null;
+            fos = mContext.openFileOutput("lessons.json", Context.MODE_PRIVATE);
+            fos.write(allData.toString().getBytes());
+            fos.close();
+
+            Toast.makeText(this.mContext, "lessons.json copy to data/data", Toast.LENGTH_LONG).show();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            Toast.makeText(this.mContext, "Error: "+ e, Toast.LENGTH_LONG).show();
+        } catch (IOException e){
+            Toast.makeText(this.mContext, "Error: "+ e, Toast.LENGTH_LONG).show();
+        }
+    }
+
+
+
     @JavascriptInterface
     public String getData(String data) {
         try {
@@ -101,7 +158,6 @@ public class WebAppInterface {
             }
         });
     }
-
 
 //    @JavascriptInterface
 //    public void createLesson(String lessons){

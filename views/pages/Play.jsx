@@ -3,7 +3,7 @@ import {PureComponent} from "preact/compat";
 import AppContext, {connect} from "../context/AppContext";
 
 import "./play.scss";
-import {getLesson} from "../actions";
+import {getLesson, getLessonFavorite} from "../actions";
 import correctSound from "../assets/sound/key.mp3"
 import errorSound from "../assets/sound/error.mp3"
 
@@ -42,7 +42,14 @@ class Play extends PureComponent {
 	
 	componentDidMount() {
 		if(this.props.state.lessons){
-			let lesson = getLesson(this.props.state.lessons, this.props.lessonSection, this.props.lessonName)
+			let lesson;
+			
+			
+			if(this.props.lessonSection === "favorite") {
+			 	lesson = getLessonFavorite(this.props.state.favoriteLessons, this.props.lessonName)
+			} else {
+				lesson = getLesson(this.props.state.lessons, this.props.lessonSection, this.props.lessonName)
+			}
 			this.setState({
 				...this.state,
 				lesson: {

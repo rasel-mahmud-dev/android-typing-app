@@ -1,4 +1,3 @@
-import log from "../utils/log";
 import {h} from "preact"
 import {Link} from "preact-router"
 
