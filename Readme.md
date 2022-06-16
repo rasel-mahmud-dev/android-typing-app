@@ -7,6 +7,10 @@ And also I use preact-router to navigate different page.
 
 
 
+https://user-images.githubusercontent.com/99707905/174155128-4c7fb75c-7bcc-4c11-b1a2-21fed5f0dc0b.mp4
+
+
+
 
 ![](thumbs/Screenshots/Screenshot_2022-06-17-01-46-45-980_com.preact_android.jpg)
 ![](thumbs/Screenshots/Screenshot_2022-06-16-20-11-22-415_com.preact_android.jpg)
