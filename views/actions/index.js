@@ -1,5 +1,4 @@
 export function getLesson(lessonsArr, lessonSection, lessonName, nextIndex = -1){
-	
 	let lesson = null
 	if (lessonSection) {
 		let secIndex = lessonsArr.findIndex(sec => sec.label === lessonSection)
@@ -44,6 +43,17 @@ export function getLesson(lessonsArr, lessonSection, lessonName, nextIndex = -1)
 	return lesson
 }
 
+export function getLessonById(lessonsArr, lessonSection, lessonId){
+	let lesson = null
+	
+	let sectionIndex  = lessonsArr.findIndex(les=>les.label === lessonSection)
+	if(sectionIndex !== -1){
+		let sections = lessonsArr[sectionIndex]
+		lesson = sections.items.find(item=>item.id === lessonId)
+	}
+	return lesson
+}
+
 
 export function getLessonFavorite(lessonsArr,  lessonName, nextIndex = -1){
 	let lesson;
@@ -60,3 +70,41 @@ export function getLessonFavorite(lessonsArr,  lessonName, nextIndex = -1){
 	}
 	return lesson
 }
+
+
+export function toggleAddToFavorite(favoriteLessons, lesson){
+	
+	if(!lesson.id){
+		favoriteLessons.push(lesson)
+	} else {
+		let index = favoriteLessons.findIndex(fv => fv.id === lesson.id);
+		if (index !== -1) {
+			favoriteLessons.splice(index, 1)
+		} else {
+			favoriteLessons.push(lesson)
+		}
+	}
+	return favoriteLessons;
+}
+
+export function addToLesson(lessons, lesson) {
+	lessons.push(lesson)
+	return lessons
+}
+
+
+export function deleteLesson(lessons, lessonSection, lessonId){
+	let index = lessons.findIndex(les=>les.label === lessonSection)
+	if(index !== -1){
+		let sub = lessons[index]
+		if(sub){
+			lessons[index].items = sub.items.filter(lesson => lesson.id !== lessonId)
+			return lessons
+		} else {
+			return false
+		}
+	} else {
+		return false
+	}
+}
+

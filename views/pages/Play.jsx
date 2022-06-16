@@ -25,6 +25,8 @@ class Play extends PureComponent {
 			correctIndex: [],
 			isMute: false,
 			finished: false,
+			incorrect: 0,
+			totalHits: 0,
 			lesson: {
 				textArr: []
 			},
@@ -41,7 +43,7 @@ class Play extends PureComponent {
 
 	
 	componentDidMount() {
-		if(this.props.state.lessons){
+		if(this.props.state.lessons && this.props.state.lessons.length > 0){
 			let lesson;
 			
 			
@@ -55,9 +57,11 @@ class Play extends PureComponent {
 				lesson: {
 					...this.state.lesson,
 					...lesson,
+					isFav: true,
 					textArr: lesson.text.split("")
 				}
 			})
+			this.props.setState({lesson: lesson})
 		}
 		
 		window.addEventListener("keypress", this.progressHandler)
@@ -68,7 +72,7 @@ class Play extends PureComponent {
 	}
 	
 	componentDidUpdate(previousProps, previousState, snapshot) {
-		this.bigLetterTimeId && clearTimeout(this.bigLetterTimeId)
+		// this.bigLetterTimeId && clearTimeout(this.bigLetterTimeId)
 		
 		if(previousProps.state.lessons !== this.props.state.lessons){
 			if(this.props.state.lessons) {
@@ -79,6 +83,7 @@ class Play extends PureComponent {
 					lesson: {
 						...this.state.lesson,
 						...lesson,
+						isFav: true,
 						textArr: lesson.text.split("")
 					}
 				})
@@ -87,6 +92,7 @@ class Play extends PureComponent {
 		
 		
 		if(previousState.currentPressedLetter !== this.state.currentPressedLetter){
+			
 			this.bigLetterTimeId = setTimeout(()=>{
 				this.setState({
 					...this.state,
@@ -102,13 +108,37 @@ class Play extends PureComponent {
 			...this.state,
 			finished: false,
 			currentIndex: 0,
+			incorrect: 0,
+			totalHits: 0,
 			currentPressedLetter: "",
 			correctIndex: [],
 		})
 	}
 	
 	handleJumpNextLesson(e){
-	
+		const {nextLessonIndex} = this.props.state.lesson
+		
+		let lesson = getLesson(this.props.state.lessons, this.props.lessonSection, this.props.lessonName, nextLessonIndex)
+		this.props.setState({
+			lesson: lesson,
+			correctPercent: null
+		})
+		this.setState({
+			...this.state,
+			lesson: {
+				...this.state.lesson,
+				...lesson,
+				isFav: true,
+				nextLessonIndex: nextLessonIndex + 1,
+				textArr: lesson.text.split("")
+			},
+			finished: false,
+			currentIndex: 0,
+			incorrect: 0,
+			totalHits: 0,
+			currentPressedLetter: "",
+			correctIndex: [],
+		})
 	}
 	
 	playCongratulationSound(){
@@ -161,22 +191,26 @@ class Play extends PureComponent {
 			updateState.currentIndex = updateState.currentIndex + 1
 		} else {
 			this.keyPressSound(true)
-			console.log("wrong")
+			updateState.incorrect += 1
+			
 		}
+		
+		updateState.totalHits += 1
 		
 		if(updateState.currentIndex === updateState.lesson.textArr.length ) {
 			this.playCongratulationSound();
 			updateState.finished = true
 		}
 		
-		this.setState(updateState)
+		this.setState(updateState, ()=>{
+			let correctPercent = Math.round((updateState.currentIndex/updateState.totalHits)*100);
+			this.props.setState({
+				correctPercent: correctPercent
+			})
+		})
 		
 	}
-	
-	changeName = (name)=>{
-		this.props.state.setState({name: "ASDDDDDDDDDD"})
-	}
-	
+
 	
 	keyPressSound(isError=false){
 		if(!this.props.state.isMute){
@@ -190,34 +224,49 @@ class Play extends PureComponent {
 	
 	
 	render() {
-		let textArr = this.state.lesson.textArr;
 		
+		const {correctIndex, currentPressedLetter, currentIndex, incorrect, totalHits, lesson} = this.state
+		let textArr = lesson.textArr;
 
 		let a = ""
 		let b = ""
-		if(textArr[this.state.currentIndex - 1]){
-			a = textArr[this.state.currentIndex - 1].toUpperCase()
+		if(textArr[currentIndex - 1]){
+			a = textArr[currentIndex - 1].toUpperCase()
 		}
-		if(this.state.currentPressedLetter){
-			b = this.state.currentPressedLetter.toUpperCase()
+		if(currentPressedLetter){
+			b = currentPressedLetter.toUpperCase()
 		}
 		
 		let isCorrectPressed = a === b
+		/*
+		10  = correct  5
+		1   =          5/10
+		100 =          (5/10)*100
+		
+		*/
+		
+		
+		// let correctLetter = currentIndex;
+		// // let mm = (correctLetter/textArr.length);
+		// // console.log(mm * 100)
+		// let correctPercent = Math.round((currentIndex/totalHits)*100)
+		// let asa = textArr.length - incorrect;
+		
 		
 		return (
 			<div>
 				
-				<h1 className={["big-letter", isCorrectPressed ? "correct": "wrong"].join(" ")}>{this.state.currentPressedLetter}</h1>
+				<h1 className={["big-letter", isCorrectPressed ? "correct": "wrong"].join(" ")}>{currentPressedLetter}</h1>
 				
 				<div className="text">
 					{ textArr && textArr.map((letter, index)=>(
 						<li className={[
-							this.state.currentIndex === index ? "focus": "",
+							currentIndex === index ? "focus": "",
 							letter === " " ? "white-space":"",
-							this.state.correctIndex.indexOf(index) !== -1 ? "passed": ""
+							correctIndex.indexOf(index) !== -1 ? "passed": ""
 						].join(" ")} >
 							{letter}
-							{this.state.currentIndex === index && <span className="caret" /> }
+							{currentIndex === index && <span className="caret" /> }
 						</li>
 					)) }
 				</div>

@@ -5,10 +5,11 @@ import Router, {Route} from "preact-router";
 import {createHashHistory} from "history";
 import HomePage from "./pages/Homepage";
 import AboutPage from "./pages/AboutPage";
-import AddPost from "./pages/AddPost";
 import AddNewLesson from "./pages/AddNewLesson";
 import Play from "./pages/Play";
 import TopNavigation from "./components/TopNavigation";
+import lessons from "./context/lessons.json"
+
 
 const App = ()=>{
 	
@@ -21,6 +22,7 @@ const App = ()=>{
 			 getDataFromAndroid()
 		}
 		// appContext.setState({lessons: lessons.lessons, favoriteLessons: lessons.favorite})
+		
 	}, [])
 	
 	function handleClick(){
@@ -33,25 +35,24 @@ const App = ()=>{
 		let a = Android && Android.getData("");
 		try{
 			let data = JSON.parse(a)
-			appContext.setState({lessons: data.lessons, favoriteLessons: data.favorite})
+			appContext.setState({lessons: data.lessons ? data.lessons : [], favoriteLessons: data.favorite ? data.favorite : []})
 			let lenLesson = 0
 			let lenFavo = 0
-			
+
 			if(data.lessons){
 				lenLesson = data.lessons.length;
 			}
-			
+
 			if(data.favorite){
 				lenFavo = data.favorite.length;
 			}
-			
+
 			Android.showToast("lesson fetch from android " + JSON.stringify({
 				lesson: lenLesson,
 				favorite: lenFavo,
 			}))
 		} catch (ex){
 			Android.showToast(ex.message)
-			alert("lessons not found")
 			Android && Android.handleError("copy-lessons");
 		}
 	}
@@ -71,8 +72,7 @@ const App = ()=>{
 				<Router  history={createHashHistory()} >
 					<Route index={true} path="/" component={HomePage} />
 					<Route index={true} path="/about" component={AboutPage} />
-					<Route index={true} path="/add-post" component={AddPost} />
-					<Route index={true} path="/add-new-lesson" component={AddNewLesson} />
+					<Route index={true} path="/add-new-lesson/:lessonSection/:id" component={AddNewLesson} />
 					<Route index={true} path="/play/:lessonSection/:lessonName" component={Play} />
 					{/*<AsyncRoute*/}
 					{/*  path="/login"*/}

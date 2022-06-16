@@ -10,7 +10,7 @@ html{
 //(100/16) * 10) // 62.5
 
 body{
-  background: #47a676;
+  //background: #47a676;
   margin: 0;
   padding: 0;
   font-size: 1.8rem; // 18px
@@ -110,7 +110,7 @@ button{
   overflow-y: scroll;
   //background: red;
   //width: 100%;
-  background: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.33);
   z-index: 10;
   position: relative;
   //backdrop-filter: blur(20px);
@@ -125,7 +125,7 @@ button{
   width: 524px;
   height: 524px;
   background: linear-gradient(210.9deg, #FF6767 10.72%, rgba(255, 246, 160, 0.529516) 68.51%);
-  filter: blur(100px);
+  filter: blur(160px);
   left: 50%;
   transform: translateX(-50%);
   bottom: -200px;
@@ -156,6 +156,8 @@ button{
 
 .lesson_link{
   margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
   a{
     text-decoration: none;
   }
@@ -196,6 +198,7 @@ button{
       width: 16px;
       margin-right: 5px;
       font-size: 12px;
+      cursor: pointer;
     }
     &.lesson_active{
       background: rgb(0, 185, 124);
@@ -219,14 +222,14 @@ button{
   label{
     font-size: 16px;
     font-weight: 400;
-    color: white;
+    color: #353535;
   }
   .input, select{
     background: transparent;
     border: none;
-    color: white;
+    color: #353535;
     outline: none;
-    border-bottom: 2px solid rgb(56, 97, 255);
+    border-bottom: 2px solid rgb(0 185 124 / 86%);
   }
   .input-focused{
     height: auto;
@@ -236,4 +239,57 @@ button{
     height: 0;
     padding: 2px 0px;
   }
+}
+.svg_disable{
+  fill: #c7c7c7f2 !important;
+  pointer-events: none;
+}
+
+.svg_on{
+  fill: rgb(253, 0, 176) !important;
+}
+.action_icons{
+  display: flex;
+  svg{
+    width: 14px;
+    margin-left: 18px;
+    fill: #494949;
+    cursor: pointer;
+    &:hover{
+      fill: rgb(0 185 124 / 86%);;
+    }
+  }
+}
+
+.alert-box{
+  background: #009863;
+  padding: 20px 30px;
+  position: fixed;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 14px -2px #6b6b6b;
+h4{
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+  }
+  .buttons {
+    margin-top: 20px;
+    button {
+      background: rgba(89, 176, 148, 0.33);
+      font-size: 16px;
+      padding: 5px 15px;
+      margin: 0 5px 0 0;
+      &:hover{
+        background: rgba(0, 239, 157, 0.33);
+      }
+    }
+  }
+}
+.fav_icon{
+  fill: red !important;
+}
+.lesson-title{
+  color: white;
 }

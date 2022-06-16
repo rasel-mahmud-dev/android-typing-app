@@ -1,13 +1,15 @@
 import {h} from "preact"
 import {Link} from "preact-router"
+import {toggleAddToFavorite} from "../actions";
+import {useEffect, useState} from "preact/compat";
 
 
 
 const TopNavigation = (props)=>{
 	
-
 	const {state, setState} = props
-
+	const [activeFavoriteBtn, setActiveFavoriteBtn] = useState(false)
+	
 	function handleToggleSound(){
 		setState({
 			isMute: !state.isMute
@@ -16,6 +18,44 @@ const TopNavigation = (props)=>{
 	
 	function reloadApp(){
 		Android.reloadWebview("reload app")
+	}
+	
+	function makeToggleFav(){
+		let lesson = {
+			label: state.lesson.label,
+			id: state.lesson.id,
+			text: state.lesson.text
+		}
+		
+		let favoriteLessons = toggleAddToFavorite(state.favoriteLessons, lesson)
+
+		let newChange = {
+			favoriteLessons: favoriteLessons,
+			lessons: state.lessons
+		}
+		
+		Android.showToast(JSON.stringify(newChange))
+		let isOk = Android.addLesson(JSON.stringify(newChange))
+		if (isOk){
+			Android.showToast("Lesson has been added in favorite list")
+		}
+	}
+	
+	useEffect(() => {
+		changeHandler()
+		window.addEventListener("popstate", changeHandler)
+		return () => {
+			window.removeEventListener("popstate", changeHandler)
+		};
+	}, [])
+	
+	function changeHandler(e){
+	
+			if(location.hash.indexOf("#/play/") !== -1){
+				setActiveFavoriteBtn(true)
+			} else {
+				setActiveFavoriteBtn(false)
+			}
 	}
 	
 	return (
@@ -33,36 +73,36 @@ const TopNavigation = (props)=>{
          </span>
 				</div>
 				
-				<div id="lesson-title">{state.lesson && state.lesson.label}</div>
+				{state.lesson &&	<div className="lesson-title">({state.lesson.nextLessonIndex}) {state.lesson.label}</div> }
 				
 				<div className="flex right-nav items-center">
          
 					
-					
-					{/*<span className="nav-badge" id="speed-meter"></span>*/}
-					{/*<span className="nav-badge" id="time-running"></span>*/}
+					{ state.correctPercent !== null && <span>{state.correctPercent}%</span> }
 					
 					<span className="sound-btn">
+						
 						{state.isMute
-							? <svg onClick={handleToggleSound} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+							? <svg className="svg_on" onClick={handleToggleSound} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 								<path
 									d="M470.38 1.51L150.41 96A32 32 0 0 0 128 126.51v261.41A139 139 0 0 0 96 384c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V214.32l256-75v184.61a138.4 138.4 0 0 0-32-3.93c-53 0-96 28.66-96 64s43 64 96 64 96-28.65 96-64V32a32 32 0 0 0-41.62-30.49z"/>
 							</svg>
-							: <svg onClick={handleToggleSound} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+							: <svg className="svg_on" onClick={handleToggleSound} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
 								<path
 									d="M192 387.92a139 139 0 0 0-32-3.92c-53 0-96 28.66-96 64s43 64 96 64 96-28.66 96-64V327.88l-64-49.46zm441.82 70.18l-65.06-50.28c4.51-7.37 7.24-15.35 7.24-23.82V32a32 32 0 0 0-41.62-30.49L214.41 96a31.85 31.85 0 0 0-21 21.73L45.47 3.39A16 16 0 0 0 23 6.2L3.37 31.47a16 16 0 0 0 2.81 22.45l588.35 454.71a16 16 0 0 0 22.47-2.81l19.63-25.27a16 16 0 0 0-2.81-22.45zM512 323.92a139 139 0 0 0-32-3.92 137 137 0 0 0-22.15 2.11l-156.61-121L512 139.3z"/>
 							</svg>
 						}
          </span>
 					
-					<Link href="#add-new-lesson">
+					<Link href="/add-new-lesson/null/null">
 						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/></svg>
 					</Link>
 					
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+		
+						<svg onClick={makeToggleFav} className={[state.isFav ? "fav_icon": "", activeFavoriteBtn ? "": "svg_disables"].join(" ")} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z"/></svg>
+	
 					
 				</div>
-			
 			</div>
 		</div>
 	)

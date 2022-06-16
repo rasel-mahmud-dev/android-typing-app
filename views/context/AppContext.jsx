@@ -7,11 +7,11 @@ const AppContext =  createContext({})
 export function provider(HOC){
 	return class extends Component{
 		state = {
-			name: "rase",
 			lessons: [],
 			favoriteLessons: [],
 			lesson: null,
-			isMute: false
+			isMute: false,
+			correctPercent: null
 		}
 		
 		handleSetState = (value)=>{

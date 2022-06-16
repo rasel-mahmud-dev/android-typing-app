@@ -43,41 +43,26 @@ public class WebAppInterface {
 
 
     @JavascriptInterface
-    public void addLesson(String lessons) {
+    public boolean addLesson(String lessons) {
         FileOutputStream fos = null;
         try {
-
-            AssetManager assetFiles = mContext.getAssets();
-            InputStream stream = assetFiles.open("lessons.json");
-
-            int i;
-            char c;
-            StringBuilder allData = new StringBuilder();
-
-            while((i = stream.read()) != -1) {
-
-                // converts integer to character
-                c = (char)i;
-
-                // prints character
-                allData.append(c);
+            if(!lessons.isEmpty()) {
+                fos = mContext.openFileOutput("lessons.json", Context.MODE_PRIVATE);
+                fos.write(lessons.getBytes());
+                fos.close();
+                return  true;
+            } else {
+                Toast.makeText(this.mContext, "Lessons string are empty ", Toast.LENGTH_LONG).show();
+                return false;
             }
-
-
-            mContext.getAssets();
-
-
-            fos = mContext.openFileOutput("lessons.json", Context.MODE_PRIVATE);
-            fos.write(allData.toString().getBytes());
-            fos.close();
-
-            Toast.makeText(this.mContext, "lessons created", Toast.LENGTH_LONG).show();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             Toast.makeText(this.mContext, "Error: "+ e, Toast.LENGTH_LONG).show();
+            return false;
         } catch (IOException e){
             Toast.makeText(this.mContext, "Error: "+ e, Toast.LENGTH_LONG).show();
+            return false;
         }
     }
 

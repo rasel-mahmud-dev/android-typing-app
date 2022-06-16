@@ -4,77 +4,78 @@
       "label": "Beginner-Level",
       "items": [
         {
-          "label": "ASDF-and-JKL;",
+          "id": "1s1111", "label": "ASDF-and-JKL;",
           "text": "ASDFJKL"
         },
         {
-          "label": "aassddff",
+          "id": "11ba111", "label": "aassddff",
           "text": "aa ss dd ff "
         },
         {
-          "label": "home-row-basic-ajja",
+          "id": "111v11", "label": "home-row-basic-ajja",
           "text": "ajja ajja akka akka"
         },
         {
-          "label": "home-row-basic-alla",
+          "id": "111cv11", "label": "home-row-basic-alla",
           "text": "alla alla a;;a a;;a"
         },{
-          "label": "home-row-basic-jaaj",
+          "id": "111x11", "label": "home-row-basic-jaaj",
           "text": "jaaj jaaj jssj jssj"
         },{
-          "label": "home-row-basic-jddj",
+          "id": "1111z1", "label": "home-row-basic-jddj",
           "text": "jddj jddj jffj jffj"
         },{
-          "label": "home-row-basic-skks",
+          "id": "111j11", "label": "home-row-basic-skks",
           "text": "skks skks dlld dlls"
         },{
-          "label": "home-row-basic-djjd",
+          "id": "1h1111", "label": "home-row-basic-djjd",
           "text": "djjd djjd f;;f f;;f"
         },{
-          "label": "home-row-basic-jddj",
+          "id": "11h111", "label": "home-row-basic-jddj",
           "text": "asjk asjk asl; asl;"
         },{
-          "label": "home-row-basic-dfl",
+          "id": "111g11", "label": "home-row-basic-dfl",
           "text": "dfl; dfl; dfjk dfjk"
         },
         {
-          "label": "home-row-basic-jasd",
+          "id": "1f1111", "label": "home-row-basic-jasd",
           "text": "jasd jasd ksdf ksdf"
         },{
-          "label": "home-row-basic-fjkl",
+          "id": "111f11", "label": "home-row-basic-fjkl",
           "text": "fjkl fjkl dkl; dkl;"
         },{
-          "label": "home-row-basic-fjkl",
+          "id": "11d111", "label": "home-row-basic-fjkl",
           "text": "laks laks jd;f jd;f"
         },{
-          "label": "home-row-basic-sjal",
+          "id": "1s1111", "label": "home-row-basic-sjal",
           "text": "sjal sjal akf; akf;"
         },{
-          "label": "home-row-basic-ldaj",
+          "id": "111s11", "label": "home-row-basic-ldaj",
           "text": "ldaj ldaj ;akd ;akd"
         },{
-          "label": "home-row-basic-jfds",
+          "id": "1111a1", "label": "home-row-basic-jfds",
           "text": "jfds jfds kdsa kdsa"
         },
-        {"label": "home-row-basic-;saf","text": ";saf ;saf lfda lfda"},
-        {"label": "home-row-basic-ajk;","text": "ajk; ajk; fl;j fl;j"},
-        {"label": "home-row-basic-kaks","text": "kaks ksks ldlf ldlf"},
-        {"label": "home-row-basic-ajaf","text": "ajaf ajaf sksl sksl"},
-      
-        {"label": "home-row-basic-word-dil","text": "as as as all all all ask ask ask sad sad sad"},
-        {"label": "home-row-basic-word-dil2","text": "sals sals sals dad dad dad fall fall fall"},
-        {"label": "home-row-basic-word-dil3","text": "flask flask flask lads lads lads dada dada dada"},
-        {"label": "home-row-basic-word-dil4","text": "alas alas alas kala kala kala lada lada lada"},
-        {"label": "home-row-basic-word-dil4","text": "flak flak flak jaffa jaffa jaffa dalk dalk dalk"},
-        {"label": "home-row-basic-word-dil4","text": "kalf kalf kalf salad salad salad dallas dallas dallas"},
-        {"label": "home-row-basic-word-dil4","text": "alaska alaska alaska flasks flasks flasks lass lass lass"},
-        {"label": "home-row-basic-word-dil4","text": "alfalfa alfalfa alfalfa alfa alfa alfa kafka kafka kafka"},
-        {"label": "home-row-basic-word-dil4","text": "salsa salsa salsa lalalaaa lalalaaa lalalaaa "},
-        {"label": "home-row-basic-para","text": "add ads dad dad as sad alas sad ada dallas lads dadaa all fall alfalfa jaffa salad flask "},
-      
-      
-      
+        {"id": "0q098","label": "home-row-basic-;saf","text": ";saf ;saf lfda lfda"},
+        {"id": "0q098","label": "home-row-basic-ajk;","text": "ajk; ajk; fl;j fl;j"},
+        {"id": "00s98","label": "home-row-basic-kaks","text": "kaks ksks ldlf ldlf"},
+        {"id": "00a98","label": "home-row-basic-ajaf","text": "ajaf ajaf sksl sksl"},
+        
+        {"id": "er", "label": "home-row-basic-word-dil","text": "as as as all all all ask ask ask sad sad sad"},
+        {"id": "wer", "label": "home-row-basic-word-dil2","text": "sals sals sals dad dad dad fall fall fall"},
+        {"id": "232", "label": "home-row-basic-word-dil3","text": "flask flask flask lads lads lads dada dada dada"},
+        {"id": "f", "label": "home-row-basic-word-dil4","text": "alas alas alas kala kala kala lada lada lada"},
+        {"id": "wer", "label": "home-row-basic-word-dil4","text": "flak flak flak jaffa jaffa jaffa dalk dalk dalk"},
+        {"id": "3frdsf", "label": "home-row-basic-word-dil4","text": "kalf kalf kalf salad salad salad dallas dallas dallas"},
+        {"id": "er", "label": "home-row-basic-word-dil4","text": "alaska alaska alaska flasks flasks flasks lass lass lass"},
+        {"id": "sdf", "label": "home-row-basic-word-dil4","text": "alfalfa alfalfa alfalfa alfa alfa alfa kafka kafka kafka"},
+        {"id": "df", "label": "home-row-basic-word-dil4","text": "salsa salsa salsa lalalaaa lalalaaa lalalaaa "},
+        {"id": "dsf", "label": "home-row-basic-para","text": "add ads dad dad as sad alas sad ada dallas lads dadaa all fall alfalfa jaffa salad flask "},
+        
+        
+        
         {
+          "id": "321213",
           "label": "j-f-and-space",
           "text": "fjjffjfjfjfjjfff jfffjfjfjjjfff jfjfjfjjffjfj"
         },
@@ -141,7 +142,7 @@
         {"label": "key-E-and-I-11","text": "lisi lisi seke seke"},
         {"label": "key-E-and-I-12","text": "fisi fisi jele jele"},
         {"label": "key-E-and-I-13","text": "deli deli jile jile"},
-      
+        
         {"label": "key-E-and-I-14","text": "jkef jkef diej diej"},
         {"label": "key-E-and-I-15","text": "ajei ajei elif elif"},
         {"label": "key-E-and-I-16","text": "feli feli aife aife"},
@@ -150,7 +151,7 @@
         {"label": "key-E-and-I-20","text": "ifai ifai ekle ekle"},
         {"label": "key-E-and-I-21","text": "kela kela sije sije"},
         {"label": "key-E-and-I-22","text": "diik diik jees jees"},
-      
+        
         {"label": "key-E-and-I-word-dil","text": "if if eel eel led led aid aid ski ski ill ill side side"},
         {"label": "key-E-and-I-word-dil-2","text": "keel keel life like life ilies isle ellis isle fields file fields file"},
         {"label": "key-E-and-I-word-dil-3","text": "silk skill silk skill elk else elk else desk lead desk lead sail seal sail seal"},
@@ -168,7 +169,7 @@
         {"label": "key-R-and-U-8","text": "fufu fufu jrjr jrjr"}
       ]
     },
-  
+    
     {
       "label": "numbers-letters-numbers",
       "items": [
@@ -274,37 +275,37 @@
       "label": "advanced-symbols",
       "items": [
         {
-          "id": 1,
+          "id": 15623,
           "label": "advanced-symbols-screen-1-of-7",
           "text": "a!!! a!!! a!!! a!!! a!!! a!!! a!!! a!!! a!a a!a a!a a!a a!a a!a !a! !a! !a! !a!"
         },
         {
-          "id": 2,
+          "id": 2342,
           "label": "advanced-symbols-screen-2-of-7",
           "text": "s@@@ s@@@ s@@@ s@@@ s@@@ s@@@ s@@@ s@@@ s@s s@s s@s s@s s@s s@s @s@ @s@ @s@ @s@"
         },
         {
-          "id": 3,
+          "id": 24233,
           "label": "advanced-symbols-screen-3-of-7",
           "text": "d### d### d### d### d### d### d### d### d#d d#d d#d d#d d#d d#d #d# #d# #d# #d#"
         },
         {
-          "id": 4,
+          "id": 1231234,
           "label": "advanced-symbols-screen-3-of-7",
           "text": "f$$$ f$$$ f$$$ f$$$ f$$$ f$$$ f$$$ f$$$ f$f f$f f$f f$f f$f f$f $f$ $f$ $f$ $f$"
         },
         {
-          "id": 5,
+          "id": 5756765,
           "label": "advanced-symbols-screen-3-of-7",
           "text": "f% f% f% f% f% f% f% f% f%f f%f f%f f%f f%f f%f %f% %f% %f% %f"
         },
         {
-          "id": 6,
+          "id": 6572,
           "label": "advanced-symbols-screen-3-of-7",
           "text": "j&&& j&&& j&&& j&&& j&&& j&&& j&&& j&&& j&j j&j j&j j&j j&j j&j &j& &j& &j& &j&"
         },
         {
-          "id": 7,
+          "id": 3453457,
           "label": "advanced-symbols-screen-3-of-7",
           "text": "k*** k*** k*** k*** k*** k*** k*** k*** k*k k*k k*k k*k k*k k*k *k* *k* *k* *k*"
         }
@@ -314,72 +315,72 @@
       "label": "intermediate-level",
       "items": [
         {
-          "id": 1,
+          "id": 13452345,
           "label": "easy-home-row-words",
           "text": "add all alley aft agh ask afford ajar adapt arf ate art app arty awe aww apt arr aught apt award abs acct among aztec ant am avenue acorn axe ach"
         },
         {
-          "id": 2,
+          "id": "1122",
           "label": "easy-top-row-words",
           "text": "quartz quail quart quiver queen quilt quit quack quell qua quadev quest quint quaint quab"
         },
         {
-          "id": 2,
+          "id": "112fasf2",
           "label": "easy-bottom-row-words",
           "text": "zigzag zebra zero zipper zinnia zoo zithe zan zala zalad zajar zaddy zamono zakk zah zomo zanby zabba zamna zaxy zamn"
         },
         {
-          "id": 3,
+          "id": "112fa2",
           "label": "shift-key-and-capitalization",
           "text": "Jzjjj Jjjj Jjjj Jjjj Jjjj Ffff Ffff Ffff Ffff Ffff jJj jJj jJj jJj jJj jJj fFf fFf fFf fFf fFf fFf"
         },
         {
-          "id": 4,
+          "id": "11fas22",
           "label": "basic-punctuation",
           "text": "won't can't ain't he's he'd it's isn't she'd let's"
         },
         {
-          "id": 5,
+          "id": "112ass2",
           "label": "intermediate-punctuation",
           "text": "; ??? ; ??? ; ??? ; ??? ; ??? ; ??? ; ??? ; ??? ??? ;;; ??? ;;; ??? ;;;"
         },
         {
-          "id": 6,
+          "id": "11sa22",
           "label": "quick-sentences",
           "text": "Whatever you are, be a good one"
         },
         {
-          "id": 7,
+          "id": "112s2",
           "label": "short-paragraphs",
           "text": "Tracy looked at the flag. The flag is red, white, and blue. It has fifty white stars, seven red stripes, and six white stripes."
         },
         {
-          "id": 8,
+          "id": "112g2",
           "label": "speed-drills",
           "text": "The quick brown fox jumped over the lazy dogs."
         },
         {
-          "id": 9,
+          "id": "11c22",
           "label": "intermediate-wrap-up",
           "text": "Dear Sirs,⏎Thank you for sending the diskettes so promptly.⏎However, the diskettes which you sent are for soft sectored drives. As I stated in my original letter my system accepts only ten sector, hard sectored diskettes. I will return these two boxes as soon as I receive the correct ones."
         },
         {
-          "id": 10,
+          "id":"11222",
           "label": "intermediate-assessment",
           "text": "The serve is the most important stroke in tennis. A good player can serve the ball to any spot on the service court.⏎A ball can also be made to bounce in different ways when it hits the ground. This is done by turning the racket in the hand and putting a spin on the ball when it is struck by the racket.⏎A perfect serve is called an ace. This happens when a serve is so well placed or is hit so hard that it is impossible for the receiver to return the ball. A let is a serve that strikes the top of the net before landing in the proper service court.⏎Because the normal flight of the ball has been interrupted"
         },
         {
-          "id": 11,
+          "id": "112e2",
           "label": "accuracy-focus",
           "text": "Dear Dan,⏎Yes, I came out of the corn back to the city, both to draw and to do copy on the new cars. To date, I am able to put cash in the bank and bear a bill or two. The new deed has done it."
         },
         {
-          "id": 12,
+          "id": "1w122",
           "label": "number",
           "text": "01785513535 5d 4p 56 pv 4"
         },
         {
-          "id": 13,
+          "id": "11a22",
           "label": "brackets",
           "type": "word",
           "text": "{} [] "
@@ -390,43 +391,43 @@
       "label": "advance-level",
       "items": [
         {
-          "id": 1,
+          "id": "1asd",
           "label": "make-a-variable",
           "type": "word",
           "text": "const name = 'rasel mahmud' "
         },
         {
-          "id": 2,
+          "id": "asd",
           "label": "make-a-function",
           "type": "word",
           "text": "function printName(name){\nconsole.log(name)\n}"
         },
         {
-          "id": 3,
+          "id": "sdfsdf",
           "label": "create-html-h1-element",
           "type": "word",
           "text": "<h1>I am H1 Tag</h1>"
         },
         {
-          "id": 4,
+          "id": "saas4",
           "label": "enter-button",
           "type": "word",
           "text": "\nname"
         },
         {
-          "id": 5,
+          "id": "sdfsd5",
           "label": "",
           "type": "text",
           "text": ",,,////,,,,,>>>>,,,..../////<<<<<<<....<>>><<>>>/////?/??????><<<<,,,,<<<>>>.///????....,,,...<<>.,.<><.<<>,///????.<.<><.<>,,,,<.<><////<><>,.,.<><.,/????.<><..<<.<>/////,,,<.<><.,.,>>><.,<<<>,,...,.,<<>.,>><>>,.,.,.<><.<.<"
         },
         {
-          "id": 6,
+          "id": "sdfsdfs",
           "label": "",
           "type": "text",
           "text": "'''''\"\"\"\"\"\"'''''\"\"\"\"'''\"\"\";;:;:;:;;:;:;:;:;:;:;:;::;'\"'\"'\"'\"'''\"\"'\"'\"':':';;;\":'::';;\";\";':';\":':\":\";':':\":\":';:\"::':\";\";;;';':';\"\";\"\";'\":;\";\";\":''\";\";';;;\";\";\"\";\";\";\":\";\":':';';';:\":':"
         },
         {
-          "id": 7,
+          "id": "7sdfsd",
           "label": "bottom-v-m-c-h-g",
           "type": "word",
           "text": "fvV Mm cC H G hHh gGg vmVM"
