@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 
-		hideSystemBars();
+//		hideSystemBars();
 		setContentView(R.layout.activity_main);
 
 		this.myWebview = (WebView) findViewById(R.id.webview);

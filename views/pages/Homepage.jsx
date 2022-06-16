@@ -61,7 +61,7 @@ function HomePage(props){
 	function renderFavoriteLesson(){
 		return <div>
 			{ appContext.state.favoriteLessons.map(lesson=>(
-				<div className="p-5 my-4">
+				<div className="p-5 my-1">
 					<li className="lesson_link">
 						<Link className="" href={`#/play/favorite/${lesson.label}`}>{lesson.label}</Link>
 					</li>

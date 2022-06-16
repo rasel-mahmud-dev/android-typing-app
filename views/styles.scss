@@ -20,8 +20,8 @@ body{
 ul,li{list-style: none;padding: 0;margin: 0}
 
 .content{
- margin-top: 90px;
-  padding: 15px 15px 70px;
+  padding-top: 20px;
+  //padding: 15px 15px 70px;
 }
 
 
@@ -291,5 +291,6 @@ h4{
   fill: red !important;
 }
 .lesson-title{
+  font-size: 15px;
   color: white;
 }
